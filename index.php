@@ -1,2 +1,3 @@
-echo "github test";
-I wont yani. 
+<?php
+echo "github first";
+?>
