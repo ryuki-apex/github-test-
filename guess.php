@@ -1,25 +1,27 @@
 <?php
+
 echo ("1－100の中から数字を当ててください。");
-   //数字ランダム生成
-    $s = rand (1,100);
-     //　空白を取り除く。
-    $i =trim(fgets(STDIN)); 
+//標準入力を出す。
+$s = rand (1,100);
+$num =trim(fgets(STDIN));
+//ランダムに1－100で数字を生成する。
 
-//1-100なら表示,それ以上なら無効と表示
- if ($i <= 100 && $i >= 1){
-}
-else {
-    echo ("無効な入力です");
-}
+ 
+//空白を取り除く。標準入力を出す。
+ while($num!==$s){
 //正解と表示もしくは間違っていれば大きいか小さいか表示。
-if ($i<$s){
-    echo ("もっと大きい!");
-}else if ($i>$s){
-    echo ("もっと小さい!");
-
+if ($num>$s){
+ echo ("もっと小さい");
+ echo ($num =trim(fgets(STDIN)));
+}else if ($num<$s){
+ echo ("もっと大きい");
+ echo ($num=trim(fgets(STDIN)));
 }else {
-    echo ("正解！");
-}
+ echo ("無効な入力です");
+ echo ($num=trim(fgets(STDIN)));
+ }
+ echo ("正解です！");
+ echo ("\n");
+ }
 
-echo ("\n");
 ?>
