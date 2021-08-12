@@ -1,27 +1,38 @@
 <?php
+error_reporting(0);
 
-echo ("1－100の中から数字を当ててください。");
+    echo ("1－100の中から数字を当ててください。");
 //標準入力を出す。
-$s = rand (1,100);
-$num =trim(fgets(STDIN));
+$s=rand (1,100);
 //ランダムに1－100で数字を生成する。
+while($num!==$s){
+$num =trim(fgets(STDIN));
 
- 
-//空白を取り除く。標準入力を出す。
- while($num!==$s){
-//正解と表示もしくは間違っていれば大きいか小さいか表示。
-if ($num>$s){
- echo ("もっと小さい");
- echo ($num =trim(fgets(STDIN)));
-}else if ($num<$s){
- echo ("もっと大きい");
- echo ($num=trim(fgets(STDIN)));
+//1－100以外を無効にする
+
+if ($num>=1 && $num<=100){
+    
 }else {
- echo ("無効な入力です");
- echo ($num=trim(fgets(STDIN)));
- }
- echo ("正解です！");
- echo ("\n");
- }
-
+    echo"無効な入力です\n";
+break;
+}
+ //判定。
+ //もし$numと$sが等しければ正解と表示
+if($num==$s){
+    echo("正解です");
+   break;
+//$numより$sが小さければ小さいと表示
+}else if ($num>$s){ // $num > 50
+    echo $num;
+    echo ("もっと小さい"); 
+ //$numより$sが大きければ大きいと表示
+}else if ($num<$s){ // $num < 50
+    echo ("もっと大きい");
+ //$numが$s等しくもなく小さくも大きくもなければ無効
+}else { // $num = 50
+    echo ("無効な入力です。");
+}
+    echo ("\n");
+}
+ ///TODO: 2. echo; 3. if; 4. only 1 ~ 100 -> run if ~~~;
 ?>
